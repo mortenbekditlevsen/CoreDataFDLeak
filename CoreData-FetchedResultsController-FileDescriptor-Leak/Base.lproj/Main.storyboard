@@ -1,26 +1,95 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreData_FetchedResultsController_FileDescriptor_Leak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yeg-AK-pop">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="MNr-8C-Vnr"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gf-0H-FpH">
+                                <state key="normal" title="Add Entity"/>
+                                <connections>
+                                    <action selector="addEntityButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o0x-NH-Ppj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ut7-mi-Sxa">
+                                <state key="normal" title="Save Context (x 20)"/>
+                                <connections>
+                                    <action selector="saveContextButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vew-jF-ttY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0W1-85-S6b">
+                                <state key="normal" title="Mutate Fetch Request"/>
+                                <connections>
+                                    <action selector="mutateFetchRequestButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDJ-VM-CfM"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FV3-fT-jyU">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVJ-6U-hn1">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRW-0W-W80">
+                                <state key="normal" title="Load Resource (wait until 255 fds are open)"/>
+                                <connections>
+                                    <action selector="loadResourceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VfK-4R-tKU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90588235289999997" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="FV3-fT-jyU" secondAttribute="leading" id="1hE-Fj-MbY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9gf-0H-FpH" secondAttribute="leading" id="2tw-Kq-aBP"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0W1-85-S6b" secondAttribute="leading" id="4lg-I9-DgQ"/>
+                            <constraint firstItem="qVJ-6U-hn1" firstAttribute="top" secondItem="0W1-85-S6b" secondAttribute="bottom" constant="61" id="POm-2f-KVX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yeg-AK-pop" secondAttribute="bottom" constant="20" id="PXX-Fy-kXc"/>
+                            <constraint firstItem="Yeg-AK-pop" firstAttribute="leading" secondItem="FV3-fT-jyU" secondAttribute="trailing" constant="8" id="VX4-2s-I5A"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FV3-fT-jyU" secondAttribute="bottom" constant="25" id="X21-9b-lpg"/>
+                            <constraint firstItem="0W1-85-S6b" firstAttribute="top" secondItem="Ut7-mi-Sxa" secondAttribute="bottom" constant="8" id="YY6-uk-fQP"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ut7-mi-Sxa" secondAttribute="leading" id="bTj-8T-Wve"/>
+                            <constraint firstItem="Yeg-AK-pop" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="c1l-W7-oDC"/>
+                            <constraint firstItem="Ut7-mi-Sxa" firstAttribute="top" secondItem="9gf-0H-FpH" secondAttribute="bottom" constant="8" id="eba-V1-gxp"/>
+                            <constraint firstItem="9gf-0H-FpH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="n1M-Is-vpa"/>
+                            <constraint firstItem="dRW-0W-W80" firstAttribute="top" secondItem="0W1-85-S6b" secondAttribute="bottom" constant="8" id="oOs-oS-Vnu"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qVJ-6U-hn1" secondAttribute="leading" id="qI6-A8-Nk3"/>
+                            <constraint firstItem="FV3-fT-jyU" firstAttribute="top" secondItem="qVJ-6U-hn1" secondAttribute="bottom" constant="8" id="t5x-Ml-lrU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yeg-AK-pop" secondAttribute="trailing" id="tlf-WJ-UnV"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dRW-0W-W80" secondAttribute="leading" id="x6s-hI-EB3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="openFilesTextView" destination="FV3-fT-jyU" id="Vfs-gM-EGK"/>
+                        <outlet property="tableView" destination="Yeg-AK-pop" id="ijU-6a-nOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.6953125" y="138.28125"/>
         </scene>
     </scenes>
 </document>
